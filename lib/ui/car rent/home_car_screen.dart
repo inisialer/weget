@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weget/helper/router_name.dart';
 
 class HomeCarScreen extends StatefulWidget {
   const HomeCarScreen({Key? key}) : super(key: key);
@@ -191,6 +193,112 @@ class _HomeCarScreenState extends State<HomeCarScreen> {
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF282931),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'More Cars',
+                            style: GoogleFonts.barlow(
+                                color: const Color(0xFFD4D4D4)),
+                          ),
+                          const Icon(
+                            Icons.more_horiz,
+                            color: Color(0xFFD4D4D4),
+                          )
+                        ],
+                      ),
+                      ListView.builder(
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        physics: const ScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.pushNamed(detailCar);
+                            },
+                            child: Card(
+                              color: Colors.transparent,
+                              elevation: 0,
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text(
+                                  "Corolla Cross",
+                                  style: GoogleFonts.barlow(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                subtitle: Row(
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Transform.rotate(
+                                          angle: 1,
+                                          child: const Icon(
+                                            Icons.navigation_sharp,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          '> 870km',
+                                          style: GoogleFonts.barlow(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 17.0,
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        const Icon(
+                                          Icons.gas_meter,
+                                          color: Colors.white,
+                                        ),
+                                        Text(
+                                          '50L',
+                                          style: GoogleFonts.barlow(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                trailing: const Icon(
+                                  Icons.arrow_circle_right,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

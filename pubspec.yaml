@@ -42,6 +42,8 @@ dependencies:
   shimmer: ^3.0.0
   go_router: ^10.1.2
   google_fonts:
+  flutter_screenutil:
+  mobile_number: ^2.1.1
 
 dev_dependencies:
   flutter_test:
