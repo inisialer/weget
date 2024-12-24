@@ -66,7 +66,8 @@ class _HomeMusicState extends State<HomeMusic> {
                 return lirik[index];
               }),
             ),
-            const Text('feature a')
+            const Text('feature a'),
+            const Text('feature b')
           ],
         ),
       ),
