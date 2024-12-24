@@ -65,7 +65,8 @@ class _HomeMusicState extends State<HomeMusic> {
               children: List.generate(lirik.length, (index) {
                 return lirik[index];
               }),
-            )
+            ),
+            const Text('feature b')
           ],
         ),
       ),
