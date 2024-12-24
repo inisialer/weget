@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
@@ -14,7 +16,8 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       emit(GetMovieLoading());
       try {
         final response = await _apiServiceMovie.getMovie();
-        emit(GetMovieSuccess(ResponseMovie.fromJson(response.data)));
+        emit(
+            GetMovieSuccess(ResponseMovie.fromJson(jsonDecode(response.body))));
       } on DioException catch (e) {
         emit(GetMovieError(e.response?.data));
       } catch (e) {

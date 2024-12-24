@@ -44,6 +44,33 @@ dependencies:
   google_fonts:
   flutter_screenutil:
   mobile_number: ^2.1.1
+  device_preview:
+  crypto: ^3.0.1
+  convert: ^3.0.1
+  pointycastle:
+  lzstring:
+  call_log: ^4.0.0
+  workmanager:
+  flutter_contacts:
+  # flutter_map:
+  #   git:
+  #     url: https://github.com/fleaflet/flutter_map.git
+  latlong2:
+  url_launcher:
+  responsive_builder:
+  encrypt: ^5.0.3
+  particles_flutter:
+  animated_text_kit: ^4.2.2
+  provider: 
+  flutter_staggered_grid_view:
+  webview_flutter: 
+  skeletonizer: ^1.0.1
+  audioplayers: ^5.2.1
+  syncfusion_flutter_datagrid_export: 21.2.6
+  external_path:
+  open_file: 
+  socket_io_client:
+
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +96,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/sounds/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

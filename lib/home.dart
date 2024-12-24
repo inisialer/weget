@@ -1,10 +1,14 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
 
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:weget/bloc/movie/movie_bloc.dart';
+import 'package:weget/service/api_service_movie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -50,6 +54,18 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  FutureBuilder(
+                    future: ApiServiceMovie().getMovie(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        var response = jsonDecode(snapshot.data!.body);
+                        log(response.toString());
+                        return const Text('data muncul dari api');
+                      } else {
+                        return const Text('loading...');
+                      }
+                    },
+                  ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     controller: ScrollController(),
